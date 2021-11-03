@@ -1,0 +1,17 @@
+version: "3.7"
+networks:
+  ai:
+    name: ai
+services:
+  machine:
+    build:
+      context: "."
+      dockerfile: Dockerfile
+    command:
+      - "/bin/sh"
+      - "-c"
+      - "sleep 1000"
+    volumes:
+      - "./src:/src"
+    networks:
+      - ai
